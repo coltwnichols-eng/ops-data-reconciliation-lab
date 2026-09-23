@@ -1,0 +1,124 @@
+{
+  "scenario": "synthetic_service_operations",
+  "as_of": "2026-09-23T12:00:00.000000Z",
+  "freshness_minutes": 120,
+  "status": "FAIL",
+  "metrics": {
+    "raw_event_rows": 11,
+    "valid_event_rows": 10,
+    "excluded_invalid_event_rows": 1,
+    "excluded_duplicate_event_rows": 1,
+    "canonical_events": 9,
+    "total_partitions": 5,
+    "matched_partitions": 2,
+    "issue_count": 7
+  },
+  "partitions": [
+    {
+      "day": "2026-09-23",
+      "team": "Central",
+      "status": "MATCH",
+      "actual_event_count": 1,
+      "reported_event_count": 1,
+      "event_count_delta": 0,
+      "actual_work_minutes": 5,
+      "reported_work_minutes": 5,
+      "work_minutes_delta": 0
+    },
+    {
+      "day": "2026-09-23",
+      "team": "East",
+      "status": "ORPHAN_SUMMARY",
+      "actual_event_count": null,
+      "reported_event_count": 1,
+      "event_count_delta": null,
+      "actual_work_minutes": null,
+      "reported_work_minutes": 10,
+      "work_minutes_delta": null
+    },
+    {
+      "day": "2026-09-23",
+      "team": "North",
+      "status": "MISMATCH",
+      "actual_event_count": 4,
+      "reported_event_count": 3,
+      "event_count_delta": 1,
+      "actual_work_minutes": 70,
+      "reported_work_minutes": 55,
+      "work_minutes_delta": 15
+    },
+    {
+      "day": "2026-09-23",
+      "team": "South",
+      "status": "MATCH",
+      "actual_event_count": 3,
+      "reported_event_count": 3,
+      "event_count_delta": 0,
+      "actual_work_minutes": 75,
+      "reported_work_minutes": 75,
+      "work_minutes_delta": 0
+    },
+    {
+      "day": "2026-09-23",
+      "team": "West",
+      "status": "MISSING_SUMMARY",
+      "actual_event_count": 1,
+      "reported_event_count": null,
+      "event_count_delta": null,
+      "actual_work_minutes": 12,
+      "reported_work_minutes": null,
+      "work_minutes_delta": null
+    }
+  ],
+  "issues": [
+    {
+      "code": "INVALID_EVENT",
+      "severity": "HIGH",
+      "entity": "event",
+      "reference": "row 7",
+      "message": "ticket_id is required"
+    },
+    {
+      "code": "DUPLICATE_EVENT_ID",
+      "severity": "HIGH",
+      "entity": "event",
+      "reference": "EV-004",
+      "message": "2 valid source rows share this event_id; first row retained"
+    },
+    {
+      "code": "ORPHAN_SUMMARY",
+      "severity": "HIGH",
+      "entity": "partition",
+      "reference": "2026-09-23/East",
+      "message": "summary exists without canonical source events"
+    },
+    {
+      "code": "RECON_MISMATCH",
+      "severity": "HIGH",
+      "entity": "partition",
+      "reference": "2026-09-23/North",
+      "message": "event count and/or work minutes disagree"
+    },
+    {
+      "code": "STALE_SUMMARY",
+      "severity": "HIGH",
+      "entity": "partition",
+      "reference": "2026-09-23/North",
+      "message": "summary was produced before its latest source event"
+    },
+    {
+      "code": "MISSING_SUMMARY",
+      "severity": "HIGH",
+      "entity": "partition",
+      "reference": "2026-09-23/West",
+      "message": "canonical source events have no daily summary"
+    },
+    {
+      "code": "STALE_HEARTBEAT",
+      "severity": "HIGH",
+      "entity": "heartbeat",
+      "reference": "Central",
+      "message": "last successful ingestion exceeds 120 minutes"
+    }
+  ]
+}

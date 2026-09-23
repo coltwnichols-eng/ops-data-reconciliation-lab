@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ops-data-reconciliation-lab"
+version = "0.1.0"
+description = "Synthetic operational event-to-summary reconciliation with Python and SQLite"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Colt Nichols"}]
+dependencies = []
+
+[project.scripts]
+ops-recon = "ops_recon.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+ops_recon = ["reconciliation.sql"]
+

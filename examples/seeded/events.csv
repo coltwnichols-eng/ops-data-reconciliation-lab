@@ -1,0 +1,12 @@
+event_id,ticket_id,team,occurred_at,event_type,work_minutes
+EV-001,TK-101,North,2026-09-23T08:00:00Z,created,0
+EV-002,TK-101,North,2026-09-23T09:00:00Z,worked,30
+EV-003,TK-102,South,2026-09-23T09:30:00Z,worked,20
+EV-004,TK-103,North,2026-09-23T10:00:00Z,worked,25
+EV-004,TK-103,North,2026-09-23T10:00:00Z,worked,25
+EV-005,,North,2026-09-23T10:20:00Z,worked,10
+EV-006,TK-104,North,2026-09-23T11:15:00Z,worked,15
+EV-007,TK-105,South,2026-09-23T11:00:00Z,worked,40
+EV-008,TK-106,South,2026-09-23T11:30:00Z,worked,15
+EV-009,TK-107,West,2026-09-23T11:10:00Z,worked,12
+EV-010,TK-108,Central,2026-09-23T07:30:00Z,worked,5
